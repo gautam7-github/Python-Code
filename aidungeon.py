@@ -44,13 +44,14 @@ def choice_menu():
     time.sleep(2)
     print("1. MYSTERY")
     print("2. FANTASY")
-    user_choice = int(input())
+    user_choice = int(input(" - > "))
     if user_choice == 1:
         mystery_start()
     elif user_choice == 2:
         fntsy_start()
     else:
         print(f"AI : CHOOSE FROM THE ABOVE, {name_player.upper()}")
+        choice_menu()
 
 
 def mystery_start():
@@ -58,10 +59,10 @@ def mystery_start():
     time.sleep(2)
     print("1. DETECTIVE")
     print("2. SPY")
-    choser = input()
-    if choser == '1':
+    choser = int(input(" - > "))
+    if choser == 1:
         user_chose = "DETECTIVE"
-    elif choser == '2':
+    elif choser == 2:
         user_chose = "SPY"
     else:
         user_chose = "DETECTIVE"
@@ -76,17 +77,48 @@ def mystery_start():
 
 
 def mystery_start_setting1(user_chose):
-    print(f"\n\n\nYOU ARE {name_player.upper()}, A {user_chose} LIVING IN CHICAGO.")
+    print(f"YOU ARE {name_player.upper()}, A {user_chose} LIVING IN CHICAGO.")
+    time.sleep(1)
+    print("YOU HAVE A PISTOL AND A POLICE BADGE.")
+    print("YOU ENTER THE FOREST WHERE YOU BELIEVE THE CRIMINAL", end="")
+    print("YOU ARE SEARCHING FOR FLED TO.")
+    time.sleep(1)
+    print("SUDDENLY, YOU HEAR A NOISE.")
+    print("YOU TURN AROUND AND SEE A MAN POINTING A GUN AT YOU.")
+    time.sleep(1)
+    print('"YOU!" THE MAN SAYS.')
+    print("AI : WHAT DO YOU DO ?")
+    time.sleep(1)
+    print("1. SHOOT HIM")
+    print("2. TAKE COVER")
+    time.sleep(1)
+    userdo = input(" - > ")
+    if userdo == '1':
+        mystery_start_setting1_part1()
+    elif userdo == '2':
+        mystery_start_setting1_part2()
+    else:
+        print(f"CHOOSE PROPERLY {name_player.upper()}")
+
+
+def mystery_start_setting1_part1():
+    pass
+
+
+def mystery_start_setting1_part2():
+    pass
+
+
+def mystery_start_setting2(user_chose):
+    print(f"YOU ARE {name_player.upper()}, A {user_chose} LIVING IN CHICAGO.")
     time.sleep(1)
     print("YOU HAVE A PISTOL AND A POLICE BADGE.")
 
 
-def mystery_start_setting2(user_chose):
-    print(f"\n\n\nYOU ARE A {user_chose},")
-
-
 def mystery_start_setting3(user_chose):
-    print(f"\n\n\nYOU ARE A {user_chose},")
+    print(f"YOU ARE {name_player.upper()}, A {user_chose} LIVING IN CHICAGO.")
+    time.sleep(1)
+    print("YOU HAVE A PISTOL AND A POLICE BADGE.")
 
 
 def fntsy_start():
