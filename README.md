@@ -9,8 +9,20 @@ Bunch of Python Projects
     Make decisions that affect the fate of your character.
     ARE YOU READY?
 
+**WORK IN PROGRESS == TRUE**
+
 ### CHATBOT
 
     A Chatbot to discuss all your worries and get motivated answers.
 
-### Google Search using SELENIUM
+**WORK IN PROGRESS == TRUE**
+
+### Google Maps Place Search using SELENIUM
+
+    Explore Google Maps using Selenium
+
+**WORK IN PROGRESS == TRUE**
+
+### PASSWORD GENERATOR
+
+**WORK IN PROGRESS == TRUE**
