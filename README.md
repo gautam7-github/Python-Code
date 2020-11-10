@@ -25,4 +25,7 @@ Bunch of Python Projects
 
 ### PASSWORD GENERATOR
 
+    GUI Based - passgen 2.0
+    CLI Based - passgen 1.0
+
 **WORK IN PROGRESS == TRUE**
