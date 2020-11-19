@@ -6,6 +6,7 @@ import random
 import string
 import pyperclip
 import tkinter as tk
+import secrets
 
 
 def weakPass():
@@ -21,16 +22,18 @@ def strongPass():
 
 
 def passwordMain(lengthOG, num=False, strength='weak', copy=False):
+    letters = string.ascii_letters
     lower = string.ascii_lowercase
     upper = string.ascii_uppercase
     digit = string.digits
     punct = string.punctuation
 
     letter = lower + upper
+    length = lengthOG
 
     # empty string to store password
     paswd = ''
-    length = lengthOG
+
     if strength == 'weak':
         if num:
             length -= 2
@@ -56,20 +59,19 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
     elif strength == 'strong':
         if num:
             key = (random.randint(2, length) % length - 2)
-            if key > length / 2:
-                key = random.randint(1, key % length)
-            length -= key
-            for n in range(int(key)):
-                paswd += random.choice(digit)
+        if key > length / 2:
+            key = random.randint(1, key % length)
+        length -= key
+        for n in range(int(key)):
+            paswd += secrets.choice(digit)
         key2 = random.randint(2, length//2)
         for i in range(key2):
-            paswd += random.choice(letter)
+            paswd += secrets.choice(letters)
         length -= key2
         for k in range(length):
-            paswd += random.choice(punct)
+            paswd += secrets.choice(punct)
         paswd = list(paswd)
-        for r in range(((length * random.randint(1, 100)) // 5) % (lengthOG)):
-            print("::")
+        for r in range(((length * random.randint(1, 100)) % (lengthOG))):
             random.shuffle(paswd)
 
     random.shuffle(paswd)
@@ -81,22 +83,26 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
 
 
 def main():
+    for i in range(20):
+        res = passwordMain(8, num=True, strength='weak', copy=False)
+        print(res)
+        res2 = passwordMain(8, num=True, strength='medium', copy=True)
+        print(res2)
+        res3 = passwordMain(9, num=True, strength='strong', copy=False)
+        print(res3)
+
     win = tk.Tk()
     win.title("PASSGEN 2.0")
     print('weak : ')
-    res = passwordMain(8, num=True, strength='weak', copy=False)
     print(res)
     label1 = tk.Label(win, text=res, fg='green', font=("Helvetica"))
     label1.pack()
     print('medium : ')
-    res2 = passwordMain(8, num=True, strength='medium', copy=True)
     print(res2)
     label2 = tk.Label(win, text=res2, fg='blue', font=("Helvetica"))
     label2.pack()
     print('strong : ')
-    res3 = passwordMain(8, num=True, strength='strong', copy=False)
     print(res3)
-    label3a = tk.
     label3p = tk.Label(win, text=res3, fg='red', font=("Helvetica"))
     label3p.pack()
     win.mainloop()
