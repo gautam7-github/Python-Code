@@ -58,20 +58,20 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
 
     elif strength == 'strong':
         if num:
-            key = (random.randint(2, length) % length - 2)
+            key = int((random.randint(2, length) % length - 2))
         if key > length / 2:
-            key = random.randint(1, key % length)
+            key = int(random.randint(1, key % length))
         length -= key
         for n in range(int(key)):
             paswd += secrets.choice(digit)
-        key2 = random.randint(2, length//2)
+        key2 = int(random.randint(2, (length+1)//2))
         for i in range(key2):
             paswd += secrets.choice(letters)
         length -= key2
         for k in range(length):
             paswd += secrets.choice(punct)
         paswd = list(paswd)
-        for r in range(((length * random.randint(1, 100)) % (lengthOG))):
+        for r in range(int(((length * random.randint(1, 100)) % (lengthOG)))):
             random.shuffle(paswd)
 
     random.shuffle(paswd)
@@ -85,16 +85,19 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
 def main():
     for i in range(20):
         res = passwordMain(8, num=True, strength='weak', copy=False)
-        print(res)
-        res2 = passwordMain(8, num=True, strength='medium', copy=True)
-        print(res2)
+        print(f"{res} is weak")
+        res2 = passwordMain(8, num=True, strength='medium', copy=False)
+        print(f"{res2} is medium")
         res3 = passwordMain(9, num=True, strength='strong', copy=False)
-        print(res3)
+        print(f"{res3} is super")
 
     win = tk.Tk()
     win.title("PASSGEN 2.0")
     print('weak : ')
     print(res)
+
+    sp1 = tk.Spinbox(win).pack()
+
     label1 = tk.Label(win, text=res, fg='green', font=("Helvetica"))
     label1.pack()
     print('medium : ')
