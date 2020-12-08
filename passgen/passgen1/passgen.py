@@ -5,15 +5,17 @@
 import random
 import string
 import pyperclip
+import secrets
 
 
-def password(length, num=False, strength='weak'):
+def password(lengthOG, num=False, strength='weak'):
     lower = string.ascii_lowercase
     upper = string.ascii_uppercase
     digit = string.digits
     punct = string.punctuation
-
+    letters = string.ascii_letters
     letter = lower + upper
+    length = lengthOG
 
     # empty string to store password
     paswd = ''
@@ -41,17 +43,22 @@ def password(length, num=False, strength='weak'):
 
     elif strength == 'strong':
         if num:
-            key = (random.randint(1, length) % length - 1)
-            if key <= 2:
-                key += length % (key+random.randint(4, 8))
-            length -= key
-            for n in range(int(key)):
-                paswd += random.choice(digit)
-        for i in range(length):
-            paswd += random.choice(letter)
-            paswd += random.choice(punct)
+            key = int((random.randint(2, length) % length - 2))
+        if key > length / 2:
+            key = int(random.randint(1, key % length))
+        length -= key
+        for n in range(int(key)):
+            paswd += secrets.choice(digit)
+        key2 = int(random.randint(2, (length+1)//2))
+        for i in range(key2):
+            paswd += secrets.choice(letters)
+        length -= key2
+        for k in range(length):
+            paswd += secrets.choice(punct)
         paswd = list(paswd)
-        for r in range(2, (key * random.randint(0, 100) // 7) % (length * 2)):
+        if len(paswd) > lengthOG:
+            paswd = paswd[:(lengthOG+1)]
+        for r in range(int(((length * random.randint(1, 100)) % (lengthOG)))):
             random.shuffle(paswd)
 
     random.shuffle(paswd)
@@ -63,8 +70,8 @@ def password(length, num=False, strength='weak'):
 
 if __name__ == "__main__":
     print('weak : ')
-    print(password(8, num=True, strength='weak'))
+    print(password(10, num=True, strength='weak'))
     print('medium : ')
     print(password(8, num=True, strength='medium'))
     print('strong : ')
-    print(password(8, num=True, strength='strong'))
+    print(password(18, num=True, strength='strong'))

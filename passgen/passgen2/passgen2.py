@@ -5,7 +5,7 @@
 import random
 import string
 import pyperclip
-import tkinter as tk
+from tkinter import *
 import secrets
 
 
@@ -71,6 +71,8 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
         for k in range(length):
             paswd += secrets.choice(punct)
         paswd = list(paswd)
+        if len(paswd) > lengthOG:
+            paswd = paswd[:(lengthOG+1)]
         for r in range(int(((length * random.randint(1, 100)) % (lengthOG)))):
             random.shuffle(paswd)
 
@@ -83,31 +85,20 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
 
 
 def main():
-    for i in range(20):
-        res = passwordMain(8, num=True, strength='weak', copy=False)
-        print(f"{res} is weak")
-        res2 = passwordMain(8, num=True, strength='medium', copy=False)
-        print(f"{res2} is medium")
-        res3 = passwordMain(9, num=True, strength='strong', copy=False)
-        print(f"{res3} is super")
-
-    win = tk.Tk()
+    res = passwordMain(8, num=True, strength='weak', copy=False)
+    res2 = passwordMain(8, num=True, strength='medium', copy=False)
+    res3 = passwordMain(9, num=True, strength='strong', copy=False)
+    win = Tk()
     win.title("PASSGEN 2.0")
-    print('weak : ')
-    print(res)
-
-    sp1 = tk.Spinbox(win).pack()
-
-    label1 = tk.Label(win, text=res, fg='green', font=("Helvetica"))
+    win.configure(bg='black')
+    label1 = Label(win, text=res, fg='orange', bg='black', font=("Helvetica"))
     label1.pack()
-    print('medium : ')
-    print(res2)
-    label2 = tk.Label(win, text=res2, fg='blue', font=("Helvetica"))
+    label2 = Label(win, text=res2, fg='green', bg='black', font=("Helvetica"))
     label2.pack()
-    print('strong : ')
-    print(res3)
-    label3p = tk.Label(win, text=res3, fg='red', font=("Helvetica"))
+    label3p = Label(win, text=res3, fg='red', bg='black', font=("Helvetica"))
     label3p.pack()
+
+    btn1 = Button(win, text="PRESS HERE").pack(pady=15)
     win.mainloop()
 
 
