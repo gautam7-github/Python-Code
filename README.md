@@ -1,6 +1,6 @@
 # Python-Code
 
-Bunch of Python Projects
+## Python Projects 
 
 ### AI DUNGEON
 
@@ -17,15 +17,16 @@ Bunch of Python Projects
 
 **WORK IN PROGRESS == TRUE**
 
-### Google Maps Place Search using SELENIUM
+### Google Maps Place Search (GUI)
 
     Explore Google Maps using Selenium
 
 **WORK IN PROGRESS == TRUE**
 
-### PASSWORD GENERATOR
+### PASSWORD GENERATOR 
 
-    GUI Based - passgen 2.0
     CLI Based - passgen 1.0
+    GUI Based - passgen 2.0
+    GUI + Password Checker - passgen 3.0 (Coming Soon)
 
 **WORK IN PROGRESS == TRUE**
