@@ -84,23 +84,35 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
     return paswd
 
 
-def main():
+win = Tk()
+win.config(bg='black')
+label1 = Label(win, text='', fg='orange', bg='black', font=("Helvetica"))
+label1.pack()
+label2 = Label(win, text='', fg='green', bg='black', font=("Helvetica"))
+label2.pack()
+label3 = Label(win, text='', fg='red', bg='black', font=("Helvetica"))
+label3.pack()
+
+
+def update_weak():
     res = passwordMain(8, num=True, strength='weak', copy=False)
-    res2 = passwordMain(8, num=True, strength='medium', copy=False)
-    res3 = passwordMain(9, num=True, strength='strong', copy=False)
-    win = Tk()
-    win.title("PASSGEN 2.0")
-    win.configure(bg='black')
-    label1 = Label(win, text=res, fg='orange', bg='black', font=("Helvetica"))
-    label1.pack()
-    label2 = Label(win, text=res2, fg='green', bg='black', font=("Helvetica"))
-    label2.pack()
-    label3p = Label(win, text=res3, fg='red', bg='black', font=("Helvetica"))
-    label3p.pack()
-
-    btn1 = Button(win, text="PRESS HERE").pack(pady=15)
-    win.mainloop()
+    label1.configure(text=res)
 
 
-if __name__ == "__main__":
-    main()
+def update_medium():
+    res = passwordMain(8, num=True, strength='medium', copy=False)
+    label2.configure(text=res)
+
+
+def update_strong():
+    res = passwordMain(8, num=True, strength='strong', copy=False)
+    label3.configure(text=res)
+
+
+btn1 = Button(win, text="PASSWORD_WEAK", command=update_weak)
+btn1.pack(pady=15)
+btn2 = Button(win, text="PASSWORD_MEDIUM", command=update_medium)
+btn2.pack(pady=15)
+btn3 = Button(win, text="PASSWORD_STRONG", command=update_strong)
+btn3.pack(pady=15)
+win.mainloop()
