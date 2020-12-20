@@ -2,7 +2,7 @@ import cv2
 import face_recognition
 
 # Get a reference to webcam
-video_capture = cv2.VideoCapture("/dev/video1")
+video_capture = cv2.VideoCapture(0)
 
 # Initialize variables
 face_locations = []
@@ -17,6 +17,10 @@ while True:
     # Find all the faces in the current frame of video
     face_locations = face_recognition.face_locations(rgb_frame)
 
+    if face_locations:
+        print("FACE FOUND...")
+    else:
+        print("NO FACE...")
     # Display the results
     for top, right, bottom, left in face_locations:
         # Draw a box around the face

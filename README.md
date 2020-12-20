@@ -17,16 +17,14 @@
 
 **WORK IN PROGRESS == TRUE**
 
-### Google Maps Place Search (GUI)
+### Google Maps Place Search
+    Explore Google Maps using Selenium right in your console
+    without ever opening any browser.
+    $ mapit.py place_name
 
-    Explore Google Maps using Selenium
+### iCPT - PASSWORD GENERATOR TOOL
 
-**WORK IN PROGRESS == TRUE**
-
-### PASSWORD GENERATOR 
-
-    CLI Based - passgen 1.0
-    GUI Based - passgen 2.0
-    GUI + Password Checker - passgen 3.0 (Coming Soon)
-
-**WORK IN PROGRESS == TRUE**
+    CLI Based - iCPT 1.0
+    GUI Based - iCPT 2.0
+    GUI + Password Checker using regex queries - iCPT 2.5 (Coming Soon)
+    Web Based - iCPT 3.0 (Planning Phase)

@@ -86,6 +86,7 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
 
 win = Tk()
 win.config(bg='black')
+win.geometry('400x400')
 label1 = Label(win, text='', fg='orange', bg='black', font=("Helvetica"))
 label1.pack()
 label2 = Label(win, text='', fg='green', bg='black', font=("Helvetica"))
@@ -95,20 +96,29 @@ label3.pack()
 
 
 def update_weak():
-    res = passwordMain(8, num=True, strength='weak', copy=False)
+    length = len_scale.get()
+    length = int(length)
+    res = passwordMain(length, num=True, strength='weak', copy=False)
     label1.configure(text=res)
 
 
 def update_medium():
-    res = passwordMain(8, num=True, strength='medium', copy=False)
+    length = len_scale.get()
+    length = int(length)
+    res = passwordMain(length, num=True, strength='medium', copy=False)
     label2.configure(text=res)
 
 
 def update_strong():
-    res = passwordMain(8, num=True, strength='strong', copy=False)
+    length = len_scale.get()
+    length = int(length)
+    res = passwordMain(length, num=True, strength='strong', copy=False)
     label3.configure(text=res)
 
 
+len_label = Label(win, text="LENGTH : ").pack(pady=15, padx=15)
+len_scale = Scale(win, from_=6, to=18, orient=HORIZONTAL)
+len_scale.pack(pady=2)
 btn1 = Button(win, text="PASSWORD_WEAK", command=update_weak)
 btn1.pack(pady=15)
 btn2 = Button(win, text="PASSWORD_MEDIUM", command=update_medium)
