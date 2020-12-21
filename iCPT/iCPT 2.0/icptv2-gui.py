@@ -6,19 +6,8 @@ import random
 import string
 import pyperclip
 from tkinter import *
+from tkinter import messagebox
 import secrets
-
-
-def weakPass():
-    pass
-
-
-def mediumPass():
-    pass
-
-
-def strongPass():
-    pass
 
 
 def passwordMain(lengthOG, num=False, strength='weak', copy=False):
@@ -87,11 +76,12 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
 win = Tk()
 win.config(bg='black')
 win.geometry('400x400')
-label1 = Label(win, text='', fg='orange', bg='black', font=("Helvetica"))
+label1 = Label(win, text='', fg='orange',
+               bg='black', font=("ROGFonts-Regular"))
 label1.pack()
-label2 = Label(win, text='', fg='green', bg='black', font=("Helvetica"))
+label2 = Label(win, text='', fg='green', bg='black', font=("ROGFonts-Regular"))
 label2.pack()
-label3 = Label(win, text='', fg='red', bg='black', font=("Helvetica"))
+label3 = Label(win, text='', fg='red', bg='black', font=("ROGFonts-Regular"))
 label3.pack()
 
 
@@ -114,6 +104,9 @@ def update_strong():
     length = int(length)
     res = passwordMain(length, num=True, strength='strong', copy=False)
     label3.configure(text=res)
+    yesno = messagebox.askyesno("iCPT", "WANNA COPY PASSWORD TO CLIPBOARD ?")
+    if yesno:
+        pyperclip.copy(res)
 
 
 len_label = Label(win, text="LENGTH : ").pack(pady=15, padx=15)
