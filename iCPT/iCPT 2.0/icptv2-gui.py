@@ -18,7 +18,6 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
     upper = string.ascii_uppercase
     digit = string.digits
     punct = string.punctuation
-
     letter = lower + upper
     length = lengthOG
 
@@ -53,19 +52,21 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
         if key > length / 2:
             key = int(random.randint(1, key % length))
         length -= key
-        for n in range(int(key)):
+        for _ in range(int(key)):
             paswd += secrets.choice(digit)
-        key2 = int(random.randint(2, (length+1)//2))
+        key2 = int(random.randint(2, (length + 1) // 2))
+        if key2 < 3:
+            key2 = 3
         for i in range(key2):
             paswd += secrets.choice(letters)
         length -= key2
         for k in range(length):
             paswd += secrets.choice(punct)
         paswd = list(paswd)
-        if len(paswd) > lengthOG:
-            paswd = paswd[:(lengthOG+1)]
         for r in range(int(((length * random.randint(1, 100)) % (lengthOG)))):
             random.shuffle(paswd)
+        if len(paswd) > lengthOG:
+            paswd = paswd[:(lengthOG+1)]
 
     random.shuffle(paswd)
     paswd = ''.join(paswd)
