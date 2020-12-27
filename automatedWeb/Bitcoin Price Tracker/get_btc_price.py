@@ -8,16 +8,20 @@
 import requests
 import json
 import sys
+from pycoingecko import CoinGeckoAPI
+
+cg = CoinGeckoAPI()
 
 
-def main(args_list):
+def main_BTC(args_list):
+    cg.get_price(ids='litecoin', vs_currencies='inr')
     # for debugging
     # print(args_list)
     if not isvalidCurr(args_list[2]):
         print("NOT A VALID CURRENCY SYMBOL....")
         exit()
     url = 'https://api.coindesk.com/v1/bpi/currentprice/' + \
-        args_list[2] + '.json'
+        args_list[2].upper() + '.json'
     response = requests.get(url)
     res = json.loads(json.dumps(response.json(), indent=4))
     print("BITCOIN PRICE : "+args_list[2]+" -> ", end='')
@@ -36,12 +40,18 @@ def isvalidCurr(currency='INR'):
         for r in res:
             if r['currency'] == currency:
                 return True
+                break
+        else:
+            return False
     JsFile.close()
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 2:
         if sys.argv[1] == "-btc":
-            main(sys.argv)
+            main_BTC(sys.argv)
+        if sys.argv[1] == "-ltc":
+            print(cg.get_price(ids='litecoin', vs_currencies=sys.argv[2].lower())[
+                'litecoin'][sys.argv[2].lower()])
     else:
         print("NO ARGUMENTS PASSED....")
