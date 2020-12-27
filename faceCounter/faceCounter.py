@@ -4,8 +4,8 @@ import dlib
 import numpy as np
 
 # Get a reference to webcam
-video_capture = cv2.VideoCapture("videoplayback.mp4")
-#video_capture = cv2.VideoCapture(0)
+#video_capture = cv2.VideoCapture("videoplayback.mp4")
+video_capture = cv2.VideoCapture(0)
 
 # Initialize variables
 face_locations = []
@@ -36,7 +36,7 @@ while True:
         cv2.rectangle(frame, (x, y), (x1, y1), (12, 12, 12), 2)
         i += 1
         cv2.putText(frame, 'faces : '+str(i), (x-10, y-10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (120, 12, 12), 2)
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
     #print(face, i)
     # Display the resulting image
     cv2.imshow("FACE COUNTER", frame)
