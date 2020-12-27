@@ -11,6 +11,8 @@ import sys
 
 
 def main(args_list):
+    # for debugging
+    # print(args_list)
     if not isvalidCurr(args_list[2]):
         print("NOT A VALID CURRENCY SYMBOL....")
         exit()
@@ -20,9 +22,10 @@ def main(args_list):
     res = json.loads(json.dumps(response.json(), indent=4))
     print("BITCOIN PRICE : "+args_list[2]+" -> ", end='')
     print(res['bpi'][args_list[2]]['rate'])
-    if args_list[3] == "-w":
-        with open(args_list[4], 'w') as file:
-            json.dump(res, file, indent=4)
+    if len(args_list) > 3:
+        if args_list[3] == "-w":
+            with open(args_list[4], 'w') as file:
+                json.dump(res, file, indent=4)
 
 
 def isvalidCurr(currency='INR'):
@@ -40,6 +43,5 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         if sys.argv[1] == "-btc":
             main(sys.argv)
-            isvalidCurr()
     else:
         print("NO ARGUMENTS PASSED....")
