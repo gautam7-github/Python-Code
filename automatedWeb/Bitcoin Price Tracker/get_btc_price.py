@@ -4,9 +4,10 @@
     btcprice.py -btc USD
 '''
 
-
+import datetime
 import requests
 import json
+import matplotlib.pyplot as plt
 import sys
 from pycoingecko import CoinGeckoAPI
 
@@ -14,6 +15,7 @@ cg = CoinGeckoAPI()
 
 
 def main_BTC(args_list):
+
     cg.get_price(ids='litecoin', vs_currencies='inr')
     # for debugging
     # print(args_list)
@@ -25,7 +27,11 @@ def main_BTC(args_list):
     response = requests.get(url)
     res = json.loads(json.dumps(response.json(), indent=4))
     print("BITCOIN PRICE : "+args_list[2]+" -> ", end='')
-    print(res['bpi'][args_list[2]]['rate'])
+    data = res['bpi'][args_list[2]]['rate']
+    if '-plt' in sys.argv:
+        plt.plot(data, datetime.datetime.now())
+        plt.show()
+    print(data)
     if len(args_list) > 3:
         if args_list[3] == "-w":
             with open(args_list[4], 'w') as file:
@@ -49,7 +55,8 @@ def isvalidCurr(currency='INR'):
 if __name__ == "__main__":
     if len(sys.argv) > 2:
         if sys.argv[1] == "-btc":
-            main_BTC(sys.argv)
+            for _ in range(4):
+                main_BTC(sys.argv)
         if sys.argv[1] == "-ltc":
             print(cg.get_price(ids='litecoin', vs_currencies=sys.argv[2].lower())[
                 'litecoin'][sys.argv[2].lower()])
