@@ -23,38 +23,38 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
 
     # empty string to store password
     paswd = ''
-
+    randomS = random.SystemRandom()
     if strength == 'weak':
         if num:
             length -= 2
             for n in range(2):
-                paswd += random.choice(digit)
+                paswd += randomS.choice(digit)
         for i in range(length):
-            paswd += random.choice(lower)
+            paswd += randomS.choice(lower)
         paswd = list(paswd)
 
     elif strength == 'medium':
         if num:
-            key = (random.randint(1, length) % length) // 2
+            key = (randomS.randint(1, length) % length) // 2
             if key <= 2:
                 key += length % (key+4)
             length -= key
             for n in range(int(key)):
-                paswd += random.choice(digit)
+                paswd += randomS.choice(digit)
         for i in range(length-1):
-            paswd += random.choice(letter)
-        paswd += random.choice(punct)
+            paswd += randomS.choice(letter)
+        paswd += randomS.choice(punct)
         paswd = list(paswd)
 
     elif strength == 'strong':
         if num:
-            key = int((random.randint(2, length) % length - 2))
+            key = int((randomS.randint(2, length) % length - 2))
         if key > length / 2:
-            key = int(random.randint(1, key % length))
+            key = int(randomS.randint(1, key % length))
         length -= key
         for _ in range(int(key)):
             paswd += secrets.choice(digit)
-        key2 = int(random.randint(2, (length + 1) // 2))
+        key2 = int(randomS.randint(2, (length + 1) // 2))
         if key2 < 3:
             key2 = 3
         for i in range(key2):
@@ -63,8 +63,8 @@ def passwordMain(lengthOG, num=False, strength='weak', copy=False):
         for k in range(length):
             paswd += secrets.choice(punct)
         paswd = list(paswd)
-        for r in range(int(((length * random.randint(1, 100)) % (lengthOG)))):
-            random.shuffle(paswd)
+        for r in range(int(((length * randomS.randint(1, 100)) % (lengthOG)))):
+            randomS.shuffle(paswd)
         if len(paswd) > lengthOG:
             paswd = paswd[:(lengthOG+1)]
 
@@ -133,7 +133,8 @@ def copy_pass():
         pyperclip.copy(res_s)
 
 
-len_label = Label(win, text="LENGTH : ").pack(pady=15, padx=15)
+len_label = Label(win, text="\|/ LENGTH \|/ ", fg='white', bg='black')
+len_label.pack(pady=15, padx=15)
 len_scale = Scale(win, from_=6, to=18, orient=HORIZONTAL)
 len_scale.pack(pady=2)
 btn1 = Button(win, text="PASSWORD WEAK",

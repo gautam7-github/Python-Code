@@ -1,22 +1,22 @@
 {
     "time": {
-        "updated": "Dec 28, 2020 10:55:00 UTC",
-        "updatedISO": "2020-12-28T10:55:00+00:00",
-        "updateduk": "Dec 28, 2020 at 10:55 GMT"
+        "updated": "Dec 30, 2020 10:14:00 UTC",
+        "updatedISO": "2020-12-30T10:14:00+00:00",
+        "updateduk": "Dec 30, 2020 at 10:14 GMT"
     },
     "disclaimer": "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
     "bpi": {
         "USD": {
             "code": "USD",
-            "rate": "26,591.6333",
+            "rate": "27,847.9483",
             "description": "United States Dollar",
-            "rate_float": 26591.6333
+            "rate_float": 27847.9483
         },
         "INR": {
             "code": "INR",
-            "rate": "1,954,548.9577",
+            "rate": "2,040,767.0955",
             "description": "Indian Rupee",
-            "rate_float": 1954548.9577
+            "rate_float": 2040767.0955
         }
     }
 }
