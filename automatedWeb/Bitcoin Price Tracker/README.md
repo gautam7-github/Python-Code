@@ -1,17 +1,42 @@
-# BITCOIN PRICE TRACKER
+# CryptoCurrency Price Tracker
 
-- CLI Based Tool to fetch real time bitcoin price data
-- Supports Over 100 Currencies
+#### CRYPTO PRICE TRACKER.
 
+A CLI Based Tool to fetch real-time price data of major cryptocurrencies such as
 
-### COMMANDS
+-  Bitcoin
+-  Litecoin
+-  Ether (in development)
+-  Dogecoin (in development)
 
-- -btc <CURRENCY_SYMBOL>
-    returns real time price of bitcoin in that currency
-- -w <FILENAME.json>
-    to save the fetched data into a json file
+# Tech Stack
 
+-  Python
+-  Requests
+-  JSON
+-  CoinDesk API
+-  CoinGecko API
 
-#### FUTURE ESCALATIONS
-    Price Change Notifier
-    Add Support for LiteCoin, Ether, DogeCoin
+## COMMANDS :
+
+-> -btc "Currency"
+-> -ltc "Currency"
+-> -w "jsonFile"
+
+#### EXAMPLES :
+
+-  python3 get_btc_price.py -btc INR
+-  python3 get_btc_price.py -btc USD
+
+FEATURES :
+
+-  Incorporates intelligent API switching to ensure there is always a result.
+-  Simultaneously Multiple API Fetching to ensure accurate results.
+
+## FUTURE ESCALATIONS :
+
+-  Add GUI
+-  Add Plotting Functionality
+-  Add get previous data
+
+# Track your crypto right from the console without ever having to open a browser and typing the query.
