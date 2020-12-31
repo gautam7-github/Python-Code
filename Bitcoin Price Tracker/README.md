@@ -1,4 +1,4 @@
-# CryptoCurrency Price Tracker
+# CryptoCurrency Price Tracker - cryptoGet
 
 #### CRYPTO PRICE TRACKER.
 

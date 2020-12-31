@@ -10,4 +10,5 @@ response = requests.get(url=url)
 o = json.loads(json.dumps(response.json(), indent=4))
 for i in o:
     print(f"{i['symbol']} {i['name']}")
+    print(type(i['price']))
     print(f"{i['price']} : PRICE AT {datetime.datetime.now()}")

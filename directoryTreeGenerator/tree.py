@@ -1,11 +1,10 @@
 from os import walk
 
-
-tree = walk(r"C:\Users\91978\Desktop\test")
+direc = r"C:\Users\91978\Desktop\test"
+tree = walk(direc)
 
 for folder, subfolder, filename in tree:
     print(f"{folder} TOP LEVEL")
-    for i in subfolder:
-        print(i, " SUB FOLDER")
-    for j in filename:
-        print(j, "FILES")
+    tree2 = walk(folder)
+    for folder, subfolder, filename in tree2:
+        print(folder, subfolder, filename)
