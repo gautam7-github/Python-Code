@@ -72,7 +72,7 @@ def main_BTC(args_list):
 
 
 def isvalidCurr(currency='INR'):
-    with open(f'files-json\supportedCurr.json', 'r') as JsFile:
+    with open(f'supportedCurr.json', 'r') as JsFile:
         data = json.load(JsFile)
         # print(json.dumps(data, indent=4))
         res = json.loads(json.dumps(data, indent=4))
@@ -89,4 +89,4 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         main_BTC(sys.argv)
     else:
-        print("NO ARGUMENTS PASSED....")
+        print("REQUIRED ARGUMENTS -NOT- PASSED....")
