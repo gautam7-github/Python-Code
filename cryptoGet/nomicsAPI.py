@@ -4,6 +4,8 @@ import requests
 from argparse import ArgumentParser, SUPPRESS
 import sys
 import tabulate
+from isvalidCurr import *
+from isvalidCoin import *
 '''
 c180a29bade4d80315a19514d03c1eff
 "https://api.nomics.com/v1/currencies/ticker?key=c180a29bade4d80315a19514d03c1eff&ids=BTC&interval=1d,30d&convert="
@@ -67,6 +69,7 @@ def get_nomics_data(curr, coin, hold=1.00):
         return url, response_JSON
 
 
+'''
 def isvalidCurr(currency='INR'):
     with open(f'supportedCurr.json', 'r') as JsFile:
         data = json.load(JsFile)
@@ -79,8 +82,9 @@ def isvalidCurr(currency='INR'):
                 break
         else:
             return False
+'''
 
-
+'''
 def isvalidCoin(COIN="BTC"):
     with open("coins.json", "r") as Jfile:
         data = json.load(Jfile)
@@ -94,6 +98,7 @@ def isvalidCoin(COIN="BTC"):
         else:
             print(f"{COIN} is invalid")
             return False
+'''
 
 
 def main():

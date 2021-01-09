@@ -8,4 +8,10 @@
     "python.linting.mypyEnabled": false,
     "python.linting.prospectorEnabled": false,
     "python.linting.pycodestyleEnabled": false,
+    "python.autoComplete.addBrackets": true,
+    "python.autoComplete.extraPaths": [
+        "../cryptoGet"
+    ],
+    "python.jediEnabled": true,
+    "python.languageServer": "Jedi"
 }
