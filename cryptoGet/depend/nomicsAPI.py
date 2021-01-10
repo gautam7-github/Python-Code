@@ -4,8 +4,10 @@ import requests
 from argparse import ArgumentParser, SUPPRESS
 import sys
 import tabulate
-from isvalidCurr import *
-from isvalidCoin import *
+from utility.isvalidCurr import *
+from utility.isvalidCoin import *
+
+
 '''
 c180a29bade4d80315a19514d03c1eff
 "https://api.nomics.com/v1/currencies/ticker?key=c180a29bade4d80315a19514d03c1eff&ids=BTC&interval=1d,30d&convert="

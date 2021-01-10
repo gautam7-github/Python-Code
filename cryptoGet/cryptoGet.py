@@ -3,7 +3,6 @@
     btcprice.py -btc INR -w res.json
     btcprice.py -btc USD
 '''
-# TODO Create BTC Class
 import datetime
 import json
 import sys
@@ -11,15 +10,9 @@ import time
 
 import matplotlib.pyplot as plt
 import requests
-
 from pycoingecko import CoinGeckoAPI
-from nomicsAPI import *
-from isvalidCoin import isvalidCoin
-from isvalidCurr import isvalidCurr
 
-
-def get_BTC(args_list):
-    url, response_JSON = get_nomics_data(args_list[2], args_list[1][1:])
+from depend.nomicsAPI import *
 
 
 def get_coindesk_BTC(args_list):
@@ -48,15 +41,15 @@ def main_BTC(args_list):
     # print(args_list)
     # print(coins[sys.argv[1]])
     # print(res)
-    get_BTC(args_list)
+    if len(args_list) > 3:
+        url, response_nomics = get_nomics_data(
+            args_list[2], args_list[1][1:], float(args_list[3]))
+        data = response_nomics[0]['price']
+        data_meta = response_nomics[0]['name']
     if '-plt' in sys.argv:
         plt.plot(data, datetime.datetime.now(), 'ro')
+        plt.title(data_meta)
         plt.show()
-    if len(args_list) > 3:
-        if args_list[3] == "-w":
-            with open(args_list[4], 'w') as file:
-                pass
-                #json.dump(res, file, indent=4)
 
 
 if __name__ == "__main__":
@@ -64,3 +57,7 @@ if __name__ == "__main__":
         main_BTC(sys.argv)
     else:
         print("REQUIRED ARGUMENTS -NOT- PASSED....")
+        print("USAGE ->")
+        print("cryptoGet.py -COIN CURRENCY [HOLD]")
+        print("EXAMPLE : cryptoGet.py -btc inr 0.06")
+        print("EXAMPLE : cryptoGet.py -doge usd 400")

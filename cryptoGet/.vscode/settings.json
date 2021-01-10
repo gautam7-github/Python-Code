@@ -1,0 +1,18 @@
+{
+    "python.pythonPath": "C:\\Users\\91978\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": false,
+    "python.linting.banditEnabled": true,
+    "python.linting.mypyEnabled": false,
+    "python.linting.prospectorEnabled": false,
+    "python.linting.pycodestyleEnabled": false,
+    "python.autoComplete.addBrackets": true,
+    "python.autoComplete.extraPaths": [
+        "../utility",
+        "../depend"
+    ],
+    "python.jediEnabled": true,
+    "python.languageServer": "Jedi"
+}

@@ -1,10 +1,13 @@
 import json
+import os
+import sys
 
 
 def isvalidCurr(currency='INR'):
-    with open(f'supportedCurr.json', 'r') as JsFile:
+    currency = currency.upper()
+    with open(f'utility/supportedCurr.json', 'r') as JsFile:
         data = json.load(JsFile)
-        # print(json.dumps(data, indent=4))
+    # print(json.dumps(data, indent=4))
         res = json.loads(json.dumps(data, indent=4))
         for r in res:
             if r['currency'] == currency:
@@ -13,3 +16,9 @@ def isvalidCurr(currency='INR'):
                 break
         else:
             return False
+
+
+if __name__ == "__main__":
+    print("DEBUG --- ")
+    print(sys.argv)
+    print(isvalidCurr(sys.argv[1]))
