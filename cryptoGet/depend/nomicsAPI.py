@@ -4,23 +4,23 @@ import requests
 from argparse import ArgumentParser, SUPPRESS
 import sys
 import tabulate
+from depend.secrets import nomicsAPIKEY
 from utility.isvalidCurr import *
 from utility.isvalidCoin import *
 
 
 '''
-c180a29bade4d80315a19514d03c1eff
-"https://api.nomics.com/v1/currencies/ticker?key=c180a29bade4d80315a19514d03c1eff&ids=BTC&interval=1d,30d&convert="
+"https://api.nomics.com/v1/currencies/ticker?key=API_KEY&ids=BTC&interval=1d,30d&convert="
 '''
 
 
-def get_nomics_data(curr, coin, hold=1.00):
-    API_KEY = "c180a29bade4d80315a19514d03c1eff"
+def get_nomics_data(curr, coin='usd', hold=1.00):
+    API_KEY = nomicsAPIKEY
     currency = curr.upper()
     coin = coin.upper()
+    print("CHECKING ARGUMENTS")
     if not (isvalidCurr(currency=currency) and isvalidCoin(COIN=coin)):
-        print("ERROR IN ARGS")
-        exit()
+        return 402, None
     print("GETing Response from Nomics API")
     url = "https://api.nomics.com/v1/currencies/ticker?key="+API_KEY+"&ids=" + \
         coin + "&convert=" + currency
@@ -54,53 +54,25 @@ def get_nomics_data(curr, coin, hold=1.00):
                         [float(i['price']), "1"]
                     ],
                     headers="firstrow",
-                    tablefmt="psql"
+                    tablefmt="psql",
+                    floatfmt="20.3f"
                 )
             )
             if hold != 1.00:
+                total = float(i['price']) * hold
                 print(
                     tabulate.tabulate(
                         [
                             ["HOLD PRICE", "HOLD QNT"],
-                            [float(i['price']) * hold, hold]
+                            [total, hold]
                         ],
                         headers="firstrow",
-                        tablefmt="psql"
+                        tablefmt="psql",
+                        floatfmt="20.3f"
                     )
                 )
-        return url, response_JSON
-
-
-'''
-def isvalidCurr(currency='INR'):
-    with open(f'supportedCurr.json', 'r') as JsFile:
-        data = json.load(JsFile)
-        # print(json.dumps(data, indent=4))
-        res = json.loads(json.dumps(data, indent=4))
-        for r in res:
-            if r['currency'] == currency:
-                print(f"{currency} is valid")
-                return True
-                break
-        else:
-            return False
-'''
-
-'''
-def isvalidCoin(COIN="BTC"):
-    with open("coins.json", "r") as Jfile:
-        data = json.load(Jfile)
-        coin = json.loads(json.dumps(data, indent=4))
-        # print(coin)
-        for c in coin:
-            if c['symbol'] == COIN.lower():
-                print(f"{COIN} is valid")
-                return True
-                break
-        else:
-            print(f"{COIN} is invalid")
-            return False
-'''
+        return 200, response_JSON
+    return 404, None
 
 
 def main():

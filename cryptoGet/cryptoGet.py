@@ -1,10 +1,12 @@
 '''
-    0             1   2   3   4
-    btcprice.py -btc INR -w res.json
-    btcprice.py -btc USD
+    0             1   2    3
+    btcprice.py -btc  INR  4
+    btcprice.py -btc  USD  4
+    btcprice.py -doge INR  286
 '''
 import datetime
 import json
+import logging
 import sys
 import time
 
@@ -15,7 +17,8 @@ from pycoingecko import CoinGeckoAPI
 from depend.nomicsAPI import *
 
 
-def get_coindesk_BTC(args_list):
+def get_coindesk_btc(args_list):
+    """ CoinDesk API """
     url = 'https://api.coindesk.com/v1/bpi/currentprice/' + \
         args_list[2].upper() + '.json'
     response = requests.get(url)
@@ -23,41 +26,69 @@ def get_coindesk_BTC(args_list):
         # print(response.status_code)
         res = json.loads(json.dumps(response.json(), indent=4))
         return True, res['bpi'][args_list[2]]['rate_float'], res
-    else:
-        return False, None, None
+    return False, None, None
 
 
-def get_coinGecko(args_list, coin: str):
+def get_coingecko(args_list):
     cg = CoinGeckoAPI()
-    res = cg.get_price(ids=coin, vs_currencies=args_list[2].lower())
+    coins = {
+        'btc': 'bitcoin',
+        'ltc': 'litecoin',
+        'doge': 'dogecoin',
+        'xlm': 'stellar'
+    }
+    coin = coins[args_list[1][1:]]
+    res = cg.get_price(
+        ids=coin,
+        vs_currencies=args_list[2].lower()
+    )
     data = res[coin][args_list[2].lower()]
-    return data, res
+    print(data)
+    print(" -> ")
+    print(coin)
 
 
-def main_BTC(args_list):
-    coins = {}
-    # checking coin symbol and id
-    # for debugging
-    # print(args_list)
-    # print(coins[sys.argv[1]])
-    # print(res)
-    if len(args_list) > 3:
-        url, response_nomics = get_nomics_data(
-            args_list[2], args_list[1][1:], float(args_list[3]))
-        data = response_nomics[0]['price']
-        data_meta = response_nomics[0]['name']
-    if '-plt' in sys.argv:
+def main(args_list):
+    error_codes = {
+        402: "__INVALID ARGUMENTS__",
+        404: "__API ERROR__"
+    }
+    code, response_nomics = get_nomics_data(
+        args_list[2], args_list[1][1:], float(args_list[3]))
+    if code in error_codes and response_nomics is None:
+        if code == 404:
+            get_coingecko(args_list)
+        else:
+            print(error_codes[code])
+    data = response_nomics[0]['price']
+    data_meta = response_nomics[0]['name']
+    # print(data+" " + data_meta)
+    """if '-plt' in sys.argv:
         plt.plot(data, datetime.datetime.now(), 'ro')
         plt.title(data_meta)
-        plt.show()
+        plt.show()"""
+
+
+def args_help():
+    help_string = """
+    REQUIRED ARGUMENTS -NOT- PASSED....
+
+        USAGE ->
+               cryptoGet.py -COIN CURRENCY [HOLD]
+            ARGUMENTS:
+               -COIN : REQUIRED
+                CURRENCY : REQUIRED
+                HOLD : OPTIONAL
+
+        EXAMPLES ->
+               EXAMPLE : cryptoGet.py -btc inr 0.06
+               EXAMPLE : cryptoGet.py -doge usd 400
+    """
+    print(help_string)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 2:
-        main_BTC(sys.argv)
+    if len(sys.argv) >= 3 and sys.argv[1][0] == "-":
+        main(sys.argv)
     else:
-        print("REQUIRED ARGUMENTS -NOT- PASSED....")
-        print("USAGE ->")
-        print("cryptoGet.py -COIN CURRENCY [HOLD]")
-        print("EXAMPLE : cryptoGet.py -btc inr 0.06")
-        print("EXAMPLE : cryptoGet.py -doge usd 400")
+        args_help()
