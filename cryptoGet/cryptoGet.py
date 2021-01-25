@@ -15,6 +15,7 @@ import requests
 from pycoingecko import CoinGeckoAPI
 
 from depend.nomicsAPI import *
+from depend.coinmarketcapAPI import *
 
 
 def get_coindesk_btc(args_list):
