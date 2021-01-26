@@ -16,6 +16,7 @@ from pycoingecko import CoinGeckoAPI
 
 from depend.nomicsAPI import *
 from depend.coinmarketcapAPI import *
+from utility.getCoinName import *
 
 
 def get_coindesk_btc(args_list):
@@ -54,20 +55,27 @@ def main(args_list):
         402: "__INVALID ARGUMENTS__",
         404: "__API ERROR__"
     }
-    code, response_nomics = get_nomics_data(
-        args_list[2], args_list[1][1:], float(args_list[3]))
+    CURRENCY = args_list[2]
+    COIN_SYMBOL = args_list[1][1:]
+    COIN_NAME = get_coin_name(COIN_SYMBOL)
+    hold = 1.00
+    if len(args_list) >= 4:
+        hold = args_list[3]
+        code, response_nomics = get_nomics_data(
+            args_list[2], args_list[1][1:], float(args_list[3]))
+    else:
+        code, response_nomics = get_nomics_data(
+            args_list[2], args_list[1][1:], 1.00)
+    response_nomics = None
+    code = 404
     if code in error_codes and response_nomics is None:
         if code == 404:
-            get_coingecko(args_list)
+            get_coinmarketcap_data(CURRENCY, COIN_NAME, 1.00)
         else:
             print(error_codes[code])
-    data = response_nomics[0]['price']
-    data_meta = response_nomics[0]['name']
-    # print(data+" " + data_meta)
-    """if '-plt' in sys.argv:
-        plt.plot(data, datetime.datetime.now(), 'ro')
-        plt.title(data_meta)
-        plt.show()"""
+    else:
+        data = response_nomics[0]['price']
+        data_meta = response_nomics[0]['name']
 
 
 def args_help():
@@ -76,10 +84,11 @@ def args_help():
 
         USAGE ->
                cryptoGet.py -COIN CURRENCY [HOLD]
+
             ARGUMENTS:
-               -COIN : REQUIRED
+                -COIN    : REQUIRED
                 CURRENCY : REQUIRED
-                HOLD : OPTIONAL
+                HOLD     : OPTIONAL
 
         EXAMPLES ->
                EXAMPLE : cryptoGet.py -btc inr 0.06

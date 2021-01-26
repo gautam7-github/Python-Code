@@ -4,224 +4,24 @@
         "currency": "AED"
     },
     {
-        "country": "Afghan Afghani",
-        "currency": "AFN"
-    },
-    {
-        "country": "Albanian Lek",
-        "currency": "ALL"
-    },
-    {
-        "country": "Armenian Dram",
-        "currency": "AMD"
-    },
-    {
-        "country": "Netherlands Antillean Guilder",
-        "currency": "ANG"
-    },
-    {
-        "country": "Angolan Kwanza",
-        "currency": "AOA"
-    },
-    {
-        "country": "Argentine Peso",
-        "currency": "ARS"
-    },
-    {
         "country": "Australian Dollar",
         "currency": "AUD"
-    },
-    {
-        "country": "Aruban Florin",
-        "currency": "AWG"
-    },
-    {
-        "country": "Azerbaijani Manat",
-        "currency": "AZN"
-    },
-    {
-        "country": "Bosnia-Herzegovina Convertible Mark",
-        "currency": "BAM"
-    },
-    {
-        "country": "Barbadian Dollar",
-        "currency": "BBD"
-    },
-    {
-        "country": "Bangladeshi Taka",
-        "currency": "BDT"
-    },
-    {
-        "country": "Bulgarian Lev",
-        "currency": "BGN"
-    },
-    {
-        "country": "Bahraini Dinar",
-        "currency": "BHD"
-    },
-    {
-        "country": "Burundian Franc",
-        "currency": "BIF"
-    },
-    {
-        "country": "Bermudan Dollar",
-        "currency": "BMD"
-    },
-    {
-        "country": "Brunei Dollar",
-        "currency": "BND"
-    },
-    {
-        "country": "Bolivian Boliviano",
-        "currency": "BOB"
-    },
-    {
-        "country": "Brazilian Real",
-        "currency": "BRL"
-    },
-    {
-        "country": "Bahamian Dollar",
-        "currency": "BSD"
-    },
-    {
-        "country": "Bitcoin",
-        "currency": "BTC"
-    },
-    {
-        "country": "Bhutanese Ngultrum",
-        "currency": "BTN"
-    },
-    {
-        "country": "Botswanan Pula",
-        "currency": "BWP"
-    },
-    {
-        "country": "Belarusian Ruble",
-        "currency": "BYR"
-    },
-    {
-        "country": "Belize Dollar",
-        "currency": "BZD"
     },
     {
         "country": "Canadian Dollar",
         "currency": "CAD"
     },
     {
-        "country": "Congolese Franc",
-        "currency": "CDF"
-    },
-    {
         "country": "Swiss Franc",
         "currency": "CHF"
-    },
-    {
-        "country": "Chilean Unit of Account (UF)",
-        "currency": "CLF"
-    },
-    {
-        "country": "Chilean Peso",
-        "currency": "CLP"
-    },
-    {
-        "country": "Chinese Yuan",
-        "currency": "CNY"
-    },
-    {
-        "country": "Colombian Peso",
-        "currency": "COP"
-    },
-    {
-        "country": "Costa Rican Col\u00f3n",
-        "currency": "CRC"
-    },
-    {
-        "country": "Cuban Peso",
-        "currency": "CUP"
-    },
-    {
-        "country": "Cape Verdean Escudo",
-        "currency": "CVE"
-    },
-    {
-        "country": "Czech Republic Koruna",
-        "currency": "CZK"
-    },
-    {
-        "country": "Djiboutian Franc",
-        "currency": "DJF"
-    },
-    {
-        "country": "Danish Krone",
-        "currency": "DKK"
-    },
-    {
-        "country": "Dominican Peso",
-        "currency": "DOP"
-    },
-    {
-        "country": "Algerian Dinar",
-        "currency": "DZD"
-    },
-    {
-        "country": "Estonian Kroon",
-        "currency": "EEK"
-    },
-    {
-        "country": "Egyptian Pound",
-        "currency": "EGP"
-    },
-    {
-        "country": "Eritrean Nnakfa",
-        "currency": "ERN"
-    },
-    {
-        "country": "Ethiopian Birr",
-        "currency": "ETB"
     },
     {
         "country": "Euro",
         "currency": "EUR"
     },
     {
-        "country": "Fijian Dollar",
-        "currency": "FJD"
-    },
-    {
-        "country": "Falkland Islands Pound",
-        "currency": "FKP"
-    },
-    {
         "country": "British Pound Sterling",
         "currency": "GBP"
-    },
-    {
-        "country": "Georgian Lari",
-        "currency": "GEL"
-    },
-    {
-        "country": "Ghanaian Cedi",
-        "currency": "GHS"
-    },
-    {
-        "country": "Gibraltar Pound",
-        "currency": "GIP"
-    },
-    {
-        "country": "Gambian Dalasi",
-        "currency": "GMD"
-    },
-    {
-        "country": "Guinean Franc",
-        "currency": "GNF"
-    },
-    {
-        "country": "Guatemalan Quetzal",
-        "currency": "GTQ"
-    },
-    {
-        "country": "Guyanaese Dollar",
-        "currency": "GYD"
     },
     {
         "country": "Hong Kong Dollar",
@@ -284,120 +84,12 @@
         "currency": "JPY"
     },
     {
-        "country": "Kenyan Shilling",
-        "currency": "KES"
-    },
-    {
-        "country": "Kyrgystani Som",
-        "currency": "KGS"
-    },
-    {
-        "country": "Cambodian Riel",
-        "currency": "KHR"
-    },
-    {
-        "country": "Comorian Franc",
-        "currency": "KMF"
-    },
-    {
-        "country": "North Korean Won",
-        "currency": "KPW"
-    },
-    {
         "country": "South Korean Won",
         "currency": "KRW"
     },
     {
         "country": "Kuwaiti Dinar",
         "currency": "KWD"
-    },
-    {
-        "country": "Cayman Islands Dollar",
-        "currency": "KYD"
-    },
-    {
-        "country": "Kazakhstani Tenge",
-        "currency": "KZT"
-    },
-    {
-        "country": "Laotian Kip",
-        "currency": "LAK"
-    },
-    {
-        "country": "Lebanese Pound",
-        "currency": "LBP"
-    },
-    {
-        "country": "Sri Lankan Rupee",
-        "currency": "LKR"
-    },
-    {
-        "country": "Liberian Dollar",
-        "currency": "LRD"
-    },
-    {
-        "country": "Lesotho Loti",
-        "currency": "LSL"
-    },
-    {
-        "country": "Lithuanian Litas",
-        "currency": "LTL"
-    },
-    {
-        "country": "Latvian Lats",
-        "currency": "LVL"
-    },
-    {
-        "country": "Libyan Dinar",
-        "currency": "LYD"
-    },
-    {
-        "country": "Moroccan Dirham",
-        "currency": "MAD"
-    },
-    {
-        "country": "Moldovan Leu",
-        "currency": "MDL"
-    },
-    {
-        "country": "Malagasy Ariary",
-        "currency": "MGA"
-    },
-    {
-        "country": "Macedonian Denar",
-        "currency": "MKD"
-    },
-    {
-        "country": "Myanma Kyat",
-        "currency": "MMK"
-    },
-    {
-        "country": "Mongolian Tugrik",
-        "currency": "MNT"
-    },
-    {
-        "country": "Macanese Pataca",
-        "currency": "MOP"
-    },
-    {
-        "country": "Mauritanian Ouguiya",
-        "currency": "MRO"
-    },
-    {
-        "country": "Maltese Lira",
-        "currency": "MTL"
-    },
-    {
-        "country": "Mauritian Rupee",
-        "currency": "MUR"
-    },
-    {
-        "country": "Maldivian Rufiyaa",
-        "currency": "MVR"
-    },
-    {
-        "country": "Malawian Kwacha",
-        "currency": "MWK"
     },
     {
         "country": "Mexican Peso",
@@ -408,263 +100,23 @@
         "currency": "MYR"
     },
     {
-        "country": "Mozambican Metical",
-        "currency": "MZN"
-    },
-    {
-        "country": "Namibian Dollar",
-        "currency": "NAD"
-    },
-    {
-        "country": "Nigerian Naira",
-        "currency": "NGN"
-    },
-    {
-        "country": "Nicaraguan C\u00f3rdoba",
-        "currency": "NIO"
-    },
-    {
-        "country": "Norwegian Krone",
-        "currency": "NOK"
-    },
-    {
-        "country": "Nepalese Rupee",
-        "currency": "NPR"
-    },
-    {
         "country": "New Zealand Dollar",
         "currency": "NZD"
-    },
-    {
-        "country": "Omani Rial",
-        "currency": "OMR"
-    },
-    {
-        "country": "Panamanian Balboa",
-        "currency": "PAB"
-    },
-    {
-        "country": "Peruvian Nuevo Sol",
-        "currency": "PEN"
-    },
-    {
-        "country": "Papua New Guinean Kina",
-        "currency": "PGK"
-    },
-    {
-        "country": "Philippine Peso",
-        "currency": "PHP"
-    },
-    {
-        "country": "Pakistani Rupee",
-        "currency": "PKR"
-    },
-    {
-        "country": "Polish Zloty",
-        "currency": "PLN"
-    },
-    {
-        "country": "Paraguayan Guarani",
-        "currency": "PYG"
-    },
-    {
-        "country": "Qatari Rial",
-        "currency": "QAR"
-    },
-    {
-        "country": "Romanian Leu",
-        "currency": "RON"
-    },
-    {
-        "country": "Serbian Dinar",
-        "currency": "RSD"
     },
     {
         "country": "Russian Ruble",
         "currency": "RUB"
     },
     {
-        "country": "Rwandan Franc",
-        "currency": "RWF"
-    },
-    {
-        "country": "Saudi Riyal",
-        "currency": "SAR"
-    },
-    {
-        "country": "Solomon Islands Dollar",
-        "currency": "SBD"
-    },
-    {
-        "country": "Seychellois Rupee",
-        "currency": "SCR"
-    },
-    {
-        "country": "Sudanese Pound",
-        "currency": "SDG"
-    },
-    {
-        "country": "Swedish Krona",
-        "currency": "SEK"
-    },
-    {
         "country": "Singapore Dollar",
         "currency": "SGD"
-    },
-    {
-        "country": "Saint Helena Pound",
-        "currency": "SHP"
-    },
-    {
-        "country": "Sierra Leonean Leone",
-        "currency": "SLL"
-    },
-    {
-        "country": "Somali Shilling",
-        "currency": "SOS"
-    },
-    {
-        "country": "Surinamese Dollar",
-        "currency": "SRD"
-    },
-    {
-        "country": "S\u00e3o Tom\u00e9 and Pr\u00edncipe Dobra",
-        "currency": "STD"
-    },
-    {
-        "country": "Salvadoran Col\u00f3n",
-        "currency": "SVC"
-    },
-    {
-        "country": "Syrian Pound",
-        "currency": "SYP"
-    },
-    {
-        "country": "Swazi Lilangeni",
-        "currency": "SZL"
-    },
-    {
-        "country": "Thai Baht",
-        "currency": "THB"
-    },
-    {
-        "country": "Tajikistani Somoni",
-        "currency": "TJS"
-    },
-    {
-        "country": "Turkmenistani Manat",
-        "currency": "TMT"
-    },
-    {
-        "country": "Tunisian Dinar",
-        "currency": "TND"
-    },
-    {
-        "country": "Tongan Pa?anga",
-        "currency": "TOP"
-    },
-    {
-        "country": "Turkish Lira",
-        "currency": "TRY"
-    },
-    {
-        "country": "Trinidad and Tobago Dollar",
-        "currency": "TTD"
-    },
-    {
-        "country": "New Taiwan Dollar",
-        "currency": "TWD"
-    },
-    {
-        "country": "Tanzanian Shilling",
-        "currency": "TZS"
-    },
-    {
-        "country": "Ukrainian Hryvnia",
-        "currency": "UAH"
-    },
-    {
-        "country": "Ugandan Shilling",
-        "currency": "UGX"
     },
     {
         "country": "United States Dollar",
         "currency": "USD"
     },
     {
-        "country": "Uruguayan Peso",
-        "currency": "UYU"
-    },
-    {
-        "country": "Uzbekistan Som",
-        "currency": "UZS"
-    },
-    {
-        "country": "Venezuelan Bol\u00edvar Fuerte",
-        "currency": "VEF"
-    },
-    {
-        "country": "Vietnamese Dong",
-        "currency": "VND"
-    },
-    {
-        "country": "Vanuatu Vatu",
-        "currency": "VUV"
-    },
-    {
-        "country": "Samoan Tala",
-        "currency": "WST"
-    },
-    {
-        "country": "CFA Franc BEAC",
-        "currency": "XAF"
-    },
-    {
-        "country": "Silver (troy ounce)",
-        "currency": "XAG"
-    },
-    {
-        "country": "Gold (troy ounce)",
-        "currency": "XAU"
-    },
-    {
-        "country": "Bitcoin",
-        "currency": "XBT"
-    },
-    {
-        "country": "East Caribbean Dollar",
-        "currency": "XCD"
-    },
-    {
-        "country": "Special Drawing Rights",
-        "currency": "XDR"
-    },
-    {
-        "country": "CFA Franc BCEAO",
-        "currency": "XOF"
-    },
-    {
-        "country": "CFP Franc",
-        "currency": "XPF"
-    },
-    {
-        "country": "Yemeni Rial",
-        "currency": "YER"
-    },
-    {
         "country": "South African Rand",
         "currency": "ZAR"
-    },
-    {
-        "country": "Zambian Kwacha (pre-2013)",
-        "currency": "ZMK"
-    },
-    {
-        "country": "Zambian Kwacha",
-        "currency": "ZMW"
-    },
-    {
-        "country": "Zimbabwean Dollar",
-        "currency": "ZWL"
     }
 ]

@@ -7,7 +7,6 @@ def isvalidCurr(currency='INR'):
     currency = currency.upper()
     with open(f'utility/supportedCurr.json', 'r') as JsFile:
         data = json.load(JsFile)
-    # print(json.dumps(data, indent=4))
         res = json.loads(json.dumps(data, indent=4))
         for r in res:
             if r['currency'] == currency:

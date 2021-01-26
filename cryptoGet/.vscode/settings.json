@@ -10,8 +10,7 @@
     "python.linting.pycodestyleEnabled": false,
     "python.autoComplete.addBrackets": true,
     "python.autoComplete.extraPaths": [
-        "../utility",
-        "../depend"
+        "../"
     ],
     "python.jediEnabled": true,
     "python.languageServer": "Jedi"

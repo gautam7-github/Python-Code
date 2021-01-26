@@ -3,13 +3,12 @@ from bs4 import BeautifulSoup
 from forex_python.converter import CurrencyRates, CurrencyCodes
 
 
-def get_coinmarketcap_data():
+def get_coinmarketcap_data(curr='USD', coin='bitcoin', hold=1.00):
     conv_curr = CurrencyRates()
     codes = CurrencyCodes()
-    url = 'https://coinmarketcap.com/currencies/bitcoin/'
+    url = 'https://coinmarketcap.com/currencies/' + coin + '/'
     response = requests.get(url)
     html = response.text
-
     soup = BeautifulSoup(html, 'html.parser')
     coin_val = soup.find(
         "div",
@@ -23,3 +22,8 @@ def get_coinmarketcap_data():
         print(f"USD : {price}")
         local_symbol = codes.get_symbol('INR')
         print(f"INR : {local_symbol}{round(local_curr,2)}")
+
+
+if __name__ == "__main__":
+    print("ACCESS TO THIS FILE IS RESTRICTED...")
+    get_coinmarketcap_data("INR", "BTC", 2)

@@ -14,7 +14,7 @@ from utility.isvalidCoin import *
 '''
 
 
-def get_nomics_data(curr, coin='usd', hold=1.00):
+def get_nomics_data(curr='usd', coin='btc', hold=1.00):
     API_KEY = nomicsAPIKEY
     currency = curr.upper()
     coin = coin.upper()
@@ -97,10 +97,6 @@ def main():
         "-holding", help="HOLDINGS", required=False)
     # parses all the given args and convert them into a dictionary
     ARGS = vars(parser.parse_args())
-    # print(f"{ARGS} are the given arguments")
-    # print(ARGS['coin'])
-    # print(ARGS.get('currency'))
-    # if isvalidCurr(ARGS['coin']):
     url, res = get_nomics_data(
         ARGS['currency'], ARGS['coin'], float(ARGS['holding'])
     )
