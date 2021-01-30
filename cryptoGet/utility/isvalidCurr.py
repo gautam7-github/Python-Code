@@ -10,11 +10,8 @@ def isvalidCurr(currency='INR'):
         res = json.loads(json.dumps(data, indent=4))
         for r in res:
             if r['currency'] == currency:
-                print(f"{currency} is valid")
                 return True
-                break
-        else:
-            return False
+        return False
 
 
 if __name__ == "__main__":

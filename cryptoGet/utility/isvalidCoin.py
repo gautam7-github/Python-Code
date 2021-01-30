@@ -8,7 +8,5 @@ def isvalidCoin(COIN="BTC"):
         # print(coin)
         for c in coin:
             if c['symbol'] == COIN.lower():
-                print(f"{COIN} is valid")
                 return True
-        print(f"{COIN} is invalid")
         return False

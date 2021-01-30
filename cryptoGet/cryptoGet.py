@@ -58,21 +58,20 @@ def main(args_list):
     CURRENCY = args_list[2]
     COIN_SYMBOL = args_list[1][1:]
     COIN_NAME = get_coin_name(COIN_SYMBOL)
-    hold = 1.00
+    Hold = 1.00
     if len(args_list) >= 4:
-        hold = args_list[3]
+        Hold = float(args_list[3])
         code, response_nomics = get_nomics_data(
-            args_list[2], args_list[1][1:], float(args_list[3]))
+            args_list[2], args_list[1][1:], Hold)
     else:
         code, response_nomics = get_nomics_data(
-            args_list[2], args_list[1][1:], 1.00)
-    response_nomics = None
-    code = 404
-    if code in error_codes and response_nomics is None:
+            args_list[2], args_list[1][1:], Hold)
+    if code in error_codes or response_nomics is None:
         if code == 404:
-            get_coinmarketcap_data(CURRENCY, COIN_NAME, 1.00)
+            get_coinmarketcap_data(CURRENCY, COIN_NAME, Hold)
         else:
             print(error_codes[code])
+            args_help()
     else:
         data = response_nomics[0]['price']
         data_meta = response_nomics[0]['name']
@@ -80,7 +79,7 @@ def main(args_list):
 
 def args_help():
     help_string = """
-    REQUIRED ARGUMENTS -NOT- PASSED....
+                cryptoGet - Your CryptoTracker
 
         USAGE ->
                cryptoGet.py -COIN CURRENCY [HOLD]
@@ -93,12 +92,18 @@ def args_help():
         EXAMPLES ->
                EXAMPLE : cryptoGet.py -btc inr 0.06
                EXAMPLE : cryptoGet.py -doge usd 400
+
+        POWERED BY ->
+            CoinMarketCap API
+            Nomics API
+            CoinDesk API
+            CoinGecko API
     """
     print(help_string)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 3 and sys.argv[1][0] == "-":
+    if len(sys.argv) >= 3:
         main(sys.argv)
-    else:
+    elif "-h" in sys.argv or "-help" in sys.argv:
         args_help()

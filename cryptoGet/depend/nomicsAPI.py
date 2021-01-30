@@ -18,10 +18,8 @@ def get_nomics_data(curr='usd', coin='btc', hold=1.00):
     API_KEY = nomicsAPIKEY
     currency = curr.upper()
     coin = coin.upper()
-    print("CHECKING ARGUMENTS")
     if not (isvalidCurr(currency=currency) and isvalidCoin(COIN=coin)):
         return 402, None
-    print("GETing Response from Nomics API")
     url = "https://api.nomics.com/v1/currencies/ticker?key="+API_KEY+"&ids=" + \
         coin + "&convert=" + currency
     response = requests.get(url=url)
