@@ -18,12 +18,12 @@ def get_coinmarketcap_data(curr='USD', coin='bitcoin', hold=1.00):
     )
     for price in coin_val:
         local_curr = conv_curr.convert(
-            'USD', 'INR', float((price[1:]).replace(",", "")))
-        print(f"USD : {price}")
-        local_symbol = codes.get_symbol('INR')
-        print(f"INR : {local_symbol}{round(local_curr,2)}")
+            'USD', curr, float((price[1:]).replace(",", "")))
+        local_symbol = codes.get_symbol(curr)
+        print(f"{coin.upper()} Price")
+        print(f"{curr.upper()} : {local_symbol} {round(local_curr,2)}")
 
 
 if __name__ == "__main__":
     print("ACCESS TO THIS FILE IS RESTRICTED...")
-    get_coinmarketcap_data("INR", "BTC", 2)
+    # get_coinmarketcap_data("INR", "stellar", 2)

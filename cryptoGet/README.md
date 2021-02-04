@@ -13,7 +13,6 @@ A CLI Based Tool to fetch real-time price data of TOP 50 Crypto Currencies which
 -   JSON
 -   BeautifulSoup
 -   Nomics API
--   CoinDesk API
 -   CoinGecko API
 -   CoinMarketCap API
 -   Forex-Python
